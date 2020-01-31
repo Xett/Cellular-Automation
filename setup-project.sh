@@ -1,3 +1,4 @@
+#1/bin/bash
 # Read Input Variables
 setupName=$(git config --local remote.origin.url|sed -n 's#.*/\([^.]*\)\.git#\1#p')
 setupVersion="0.1"
@@ -7,7 +8,7 @@ setupUrl=$(git remote get-url origin)
 setupDescription=$(python get-project-short-description.py $setupUrl)
 
 # Set Directory Variables
-dir=$(PWD) > /dev/null 2>&1
+dir=$(pwd) > /dev/null 2>&1
 bin_dir=$dir"/bin"
 package_dir=$dir"/"$setupName
 old_name_project=`find * -type d -not -name "bin"`
